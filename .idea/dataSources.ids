@@ -9,24 +9,50 @@
     <database-model serializer="dbm" rdbms="MYSQL" format-version="2.5">
       <schema id="1" name="demo"/>
       <table id="2" parent="1" name="Book"/>
-      <column id="3" parent="2" name="id">
+      <table id="3" parent="1" name="Album"/>
+      <table id="4" parent="1" name="hibernate_sequence"/>
+      <column id="5" parent="2" name="id">
         <mandatory>1</mandatory>
         <data-type>int(11)</data-type>
       </column>
-      <column id="4" parent="2" name="author">
+      <column id="6" parent="2" name="author">
         <data-type>varchar(255)</data-type>
       </column>
-      <column id="5" parent="2" name="genre">
+      <column id="7" parent="2" name="genre">
         <data-type>varchar(255)</data-type>
       </column>
-      <column id="6" parent="2" name="title">
+      <column id="8" parent="2" name="title">
         <mandatory>1</mandatory>
         <data-type>varchar(255)</data-type>
       </column>
-      <key id="7" parent="2" name="PRIMARY">
+      <key id="9" parent="2" name="PRIMARY">
         <columns>id</columns>
         <primary>1</primary>
       </key>
+      <column id="10" parent="3" name="id">
+        <mandatory>1</mandatory>
+        <data-type>bigint(20)</data-type>
+      </column>
+      <column id="11" parent="3" name="composer">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="12" parent="3" name="genre">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="13" parent="3" name="numberOfSongs">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="14" parent="3" name="title">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <key id="15" parent="3" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="16" parent="4" name="next_val">
+        <data-type>bigint(20)</data-type>
+      </column>
     </database-model>
   </data-source>
 </component>
