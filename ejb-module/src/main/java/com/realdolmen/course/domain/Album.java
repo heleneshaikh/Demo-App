@@ -1,13 +1,18 @@
 package com.realdolmen.course.domain;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 /**
  * Created by heleneshaikh on 25/03/16.
  */
 
 @Entity
-public class Album {
+@NamedQueries( {
+        @NamedQuery(name="album.findAll", query = "SELECT a FROM Album a")
+})
+public class Album implements Serializable {
+    public static String FIND_ALL = "album.findAll";
     @Id
     @GeneratedValue
     private Long id;
