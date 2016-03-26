@@ -13,6 +13,5 @@ public class RemoteAlbumRepositoryTest extends RemoteIntegrationTest {
         RemoteAlbumRepository remoteAlbumRepository = lookup("ear-module-1.2/ejb-module-1.2/AlbumRepository!com.realdolmen.course.persistence.RemoteAlbumRepository");
         assertEquals(2, remoteAlbumRepository.findAllAlbums().size());
     }
-//ear-module-1.2/ejb-module-1.2/AlbumRepository!com.realdolmen.course.persistence.RemoteAlbumRepository
 
 }
