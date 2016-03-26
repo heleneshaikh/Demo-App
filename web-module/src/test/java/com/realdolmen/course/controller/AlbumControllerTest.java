@@ -15,17 +15,17 @@ import org.mockito.runners.MockitoJUnitRunner;
 @RunWith(MockitoJUnitRunner.class)
 
 public class AlbumControllerTest extends Mockito {
-    @Mock
+    @Mock //shorthand for mock creation
     private AlbumRepository albumRepository;
 
-    @InjectMocks
+    @InjectMocks //creates an instance of the class + injects the mocks that are created with the @Mock annotations into this instance
     private AlbumController albumController = new AlbumController();
 
     @Test
     public void getAllAlbumsToRepo() throws Exception {
         albumController.getAllAlbums();
-        verify(albumRepository).findAllAlbums();
-        verifyNoMoreInteractions(albumRepository);
+        verify(albumRepository).findAllAlbums(); //verify() method to ensure that a method was called.
+        verifyNoMoreInteractions(albumRepository); //Verifies that no interactions happened on given mocks.
     }
 
 }
