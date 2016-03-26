@@ -12,7 +12,7 @@ import java.util.List;
 /**
  * Created by heleneshaikh on 26/03/16.
  */
-public class AlbumPersistenceTest extends DataSetPersistenceTest {
+public class AlbumRepositoryTest extends DataSetPersistenceTest {
 
     private static EntityManagerFactory emf;
     private static AlbumRepository albumRepository;
@@ -53,7 +53,7 @@ public class AlbumPersistenceTest extends DataSetPersistenceTest {
     public void findAllAlbumsTest() throws Exception {
         List<Album> albums = albumRepository.findAllAlbums();
         assertNotNull(albums);
-        //asserteEquals(2, albums.size());
+        assertEquals(2, albums.size());
     }
 
 }

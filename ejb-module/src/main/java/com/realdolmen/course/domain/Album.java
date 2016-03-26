@@ -14,7 +14,7 @@ import java.io.Serializable;
 public class Album implements Serializable {
     public static String FIND_ALL = "album.findAll";
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Column(nullable = false, length = 100)
     private String title;

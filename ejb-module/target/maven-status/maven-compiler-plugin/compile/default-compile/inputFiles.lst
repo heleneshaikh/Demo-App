@@ -1,0 +1,8 @@
+/Users/heleneshaikh/Documents/Demo-App/ejb-module/src/main/java/com/realdolmen/course/persistence/RemoteBookRepository.java
+/Users/heleneshaikh/Documents/Demo-App/ejb-module/src/main/java/com/realdolmen/course/consumer/TextMessageConsumer.java
+/Users/heleneshaikh/Documents/Demo-App/ejb-module/src/main/java/com/realdolmen/course/domain/Book.java
+/Users/heleneshaikh/Documents/Demo-App/ejb-module/src/main/java/com/realdolmen/course/domain/User.java
+/Users/heleneshaikh/Documents/Demo-App/ejb-module/src/main/java/com/realdolmen/course/persistence/AlbumRepository.java
+/Users/heleneshaikh/Documents/Demo-App/ejb-module/src/main/java/com/realdolmen/course/persistence/RemoteAlbumRepository.java
+/Users/heleneshaikh/Documents/Demo-App/ejb-module/src/main/java/com/realdolmen/course/domain/Album.java
+/Users/heleneshaikh/Documents/Demo-App/ejb-module/src/main/java/com/realdolmen/course/persistence/BookRepository.java
