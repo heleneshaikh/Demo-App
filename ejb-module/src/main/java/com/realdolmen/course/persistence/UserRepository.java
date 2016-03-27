@@ -18,6 +18,10 @@ public class UserRepository implements RemoteUserRepository {
     @PersistenceContext
     EntityManager em;
 
+    public UserRepository() {
+
+    }
+
     @Override
     public void createUser(User user) {
         em.persist(user);

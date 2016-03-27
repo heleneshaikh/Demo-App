@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+    <meta charset="UTF-8"/>
+    <title>Registration</title>
+</h:head>
+
+<h:body>
+    <p:dataTable id="users" value="#{loginController.allUsers}" var="user">
+        <p:column headerText="firstname">
+            <h:outputText value="#{user.firstName}"/>
+        </p:column>
+        <p:column headerText="lastname">
+            <h:outputText value="#{user.lastName}"/>
+        </p:column>
+    </p:dataTable>
+    <h:form>
+        <div>
+            <p:outputLabel value="first name: " id="firstName" for="firstNameInput"/>
+            <p:inputText value="#{loginController.firstName}" id="firstNameInput"/>
+        </div>
+        <div>
+            <p:outputLabel value="last name: " id="lastName" for="lastNameInput"/>
+            <p:inputText value="#{loginController.lastName}" id="lastNameInput"/>
+        </div>
+        <h:commandButton value="register" type="submit" action="#{loginController.create}"/>
+
+    </h:form>
+
+
+</h:body>
+
+
+</html>
