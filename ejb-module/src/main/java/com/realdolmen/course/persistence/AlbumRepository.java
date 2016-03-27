@@ -1,6 +1,7 @@
 package com.realdolmen.course.persistence;
 
 import com.realdolmen.course.domain.Album;
+import com.realdolmen.course.domain.Book;
 import com.sun.jndi.cosnaming.IiopUrl;
 
 import javax.ejb.LocalBean;

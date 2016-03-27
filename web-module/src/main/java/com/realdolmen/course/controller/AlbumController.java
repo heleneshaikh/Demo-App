@@ -3,6 +3,7 @@ package com.realdolmen.course.controller;
 import com.realdolmen.course.domain.Album;
 import com.realdolmen.course.persistence.AlbumRepository;
 
+import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 import java.util.List;
@@ -12,6 +13,7 @@ import java.util.List;
  */
 
 @Named
+@RequestScoped
 public class AlbumController {
     @Inject
     AlbumRepository albumRepository;

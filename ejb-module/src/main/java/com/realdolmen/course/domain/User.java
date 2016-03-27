@@ -8,7 +8,11 @@ import java.util.List;
  */
 
 @Entity
+@NamedQueries({
+        @NamedQuery(name = "User.findAll", query = "SELECT u FROM User u")
+})
 public class User {
+    public static final String FIND_ALL = "User.findAll";
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

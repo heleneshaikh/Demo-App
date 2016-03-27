@@ -13,6 +13,17 @@
 </h:head>
 
 <h:body>
+    <p:dataTable id="albums" value="#{albumController.allAlbums}" var="album">
+        <p:column headerText="Title">
+            <h:outputText value="#{album.title}"/>
+        </p:column>
+        <p:column headerText="Arist">
+            <h:outputText value="#{album.composer}"/>
+        </p:column>
+        <p:column headerText="Genre">
+            <h:outputText value="#{album.genre.toString().toLowerCase()}"/>
+        </p:column>
+    </p:dataTable>
 </h:body>
 
 
