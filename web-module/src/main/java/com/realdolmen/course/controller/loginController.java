@@ -31,21 +31,12 @@ public class LoginController implements Serializable {
         return "success";
     }
 
+    public void remove(User user) {
+        userRepository.deleteUser(user);
+    }
+
     public List<User> getAllUsers() {
         return userRepository.findAllUsers();
-    }
-
-
-    public void save(User user) {
-        userRepository.createUser(user);
-    }
-
-    public UserRepository getUserRepository() {
-        return userRepository;
-    }
-
-    public void setUserRepository(UserRepository userRepository) {
-        this.userRepository = userRepository;
     }
 
     public String getFirstName() {
