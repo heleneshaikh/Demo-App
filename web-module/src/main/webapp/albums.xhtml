@@ -8,8 +8,8 @@
 
 
     <ui:composition template="template.xhtml">
-        <h1><ui:define name="title">Albums</ui:define></h1>
         <body>
+            <h1><ui:define name="title">Albums</ui:define></h1>
             <ui:define name="body">
                 <p:dataTable id="albums" value="#{albumController.allAlbums}" var="album">
                     <p:column headerText="Title">
@@ -30,10 +30,9 @@
                     </p:column>
                 </p:dataTable>
             </ui:define>
-        </body>
-        <footer>
             <ui:define name="footer"><ui:include src="footer.xhtml"/></ui:define>
-        </footer>
+        </body>
+
     </ui:composition>
 
 

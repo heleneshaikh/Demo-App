@@ -15,10 +15,10 @@
 <h:body>
     <h1><ui:insert name="title"/></h1>
     <ui:insert name="body"/>
-    <footer><ui:insert name="footer"/></footer>
+    <ui:insert name="footer">
+        <ui:include src="footer.xhtml"/>
+    </ui:insert>
+
 </h:body>
-
-
-
 
 </html>

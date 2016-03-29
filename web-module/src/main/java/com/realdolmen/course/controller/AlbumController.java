@@ -54,22 +54,6 @@ public class AlbumController {
        return albumRepository.findAllAlbums();
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     public void removeAlbum(Album album) {
         albumRepository.deleteAlbum(album);
     }
