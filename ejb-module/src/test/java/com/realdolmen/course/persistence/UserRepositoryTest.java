@@ -43,7 +43,7 @@ public class UserRepositoryTest extends DataSetPersistenceTest {
 
     @Test
     public void savesUsers() throws Exception {
-        User user = new User("Helene", "Shaikh", 27);
+        User user = new User("Helene", "Shaikh", User.Gender.FEMALE, 27);
         userRepository.createUser(user);
         assertNotNull(user.getId());
     }

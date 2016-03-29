@@ -20,17 +20,23 @@ public class User {
     private String firstName;
     @Column(length = 50, nullable = false)
     private String lastName;
+    @Enumerated(EnumType.STRING)
+    private Gender gender;
     @Transient
     private int age;
     @OneToMany(mappedBy = "user")
     List<Album> albumList;
 
+    public enum Gender {
+        MALE, FEMALE
+    }
     public User() {
     }
 
-    public User(String firstName, String lastName, int age) {
+    public User(String firstName, String lastName, Gender gender, int age) {
         this.firstName = firstName;
         this.lastName = lastName;
+        this.gender = gender;
         this.age = age;
     }
 
@@ -73,5 +79,17 @@ public class User {
 
     public void setAlbumList(List<Album> albumList) {
         this.albumList = albumList;
+    }
+
+    public static String getFindAll() {
+        return FIND_ALL;
+    }
+
+    public Gender getGender() {
+        return gender;
+    }
+
+    public void setGender(Gender gender) {
+        this.gender = gender;
     }
 }

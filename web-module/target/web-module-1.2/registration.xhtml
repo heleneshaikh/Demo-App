@@ -14,22 +14,36 @@
 
 <h:body>
     <p:dataTable id="users" value="#{loginController.allUsers}" var="user">
-        <p:column headerText="firstname">
+        <p:column headerText="First name">
             <h:outputText value="#{user.firstName}"/>
         </p:column>
-        <p:column headerText="lastname">
+        <p:column headerText="Last name">
             <h:outputText value="#{user.lastName}"/>
+        </p:column>
+        <p:column headerText="Gender">
+            <h:outputText value="#{user.gender}"/>
         </p:column>
     </p:dataTable>
     <h:form>
         <div>
             <p:outputLabel value="first name: " id="firstName" for="firstNameInput"/>
-            <p:inputText value="#{loginController.firstName}" id="firstNameInput"/>
+            <p:inputText value="#{loginController.firstName}" id="firstNameInput" required="true">
+                <f:validateLength minimum="3" maximum="100"/>
+                <h:message for="firstNameInput"/>
+            </p:inputText>
         </div>
+        <h:commandButton value="label" actionListeren="#{loginController.action}"/>
         <div>
             <p:outputLabel value="last name: " id="lastName" for="lastNameInput"/>
-            <p:inputText value="#{loginController.lastName}" id="lastNameInput"/>
+            <p:inputText value="#{loginController.lastName}" id="lastNameInput" required="true" validator="#{loginController.validateName}"/>
         </div>
+        <div>
+            <p:selectOneMenu value="#{loginController.gender}">
+                <f:selectItem itemLabel="Male" itemValue="MALE"/>
+                <f:selectItem itemLabel="Female" itemValue="FEMALE"/>
+            </p:selectOneMenu>
+        </div>
+
         <h:commandButton value="register" type="submit" action="#{loginController.create}"/>
     </h:form>
 

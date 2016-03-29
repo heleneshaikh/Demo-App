@@ -13,9 +13,12 @@
         <element id="artifact" artifact-name="web-module:war exploded" />
       </element>
       <element id="library" level="project" name="Maven: javax.validation:validation-api:1.1.0.Final" />
+      <element id="library" level="project" name="Maven: org.slf4j:slf4j-api:1.7.18" />
       <element id="library" level="project" name="Maven: org.jboss.logging:jboss-logging:3.3.0.Final" />
       <element id="library" level="project" name="Maven: org.hibernate:hibernate-validator:5.2.3.Final" />
       <element id="library" level="project" name="Maven: com.fasterxml:classmate:1.1.0" />
+      <element id="library" level="project" name="Maven: org.slf4j:slf4j-parent:1.7.19" />
+      <element id="library" level="project" name="Maven: org.slf4j:log4j-over-slf4j:1.7.19" />
       <element id="library" level="project" name="Maven: org.primefaces:primefaces:5.3" />
     </root>
   </artifact>
