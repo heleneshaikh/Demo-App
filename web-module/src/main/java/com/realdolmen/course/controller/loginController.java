@@ -44,7 +44,6 @@ public class LoginController implements Serializable {
     private String firstNameFilter;
 
     public LoginController() {
-
         allUsers.add(new User("Kurt", "Cobain", User.Gender.MALE, 27));
         allUsers.add(new User("Michael", "Stype", User.Gender.MALE, 46));
         allUsers.add(new User("Jimi", "Hendrikx", User.Gender.MALE, 27));
@@ -60,7 +59,6 @@ public class LoginController implements Serializable {
             }
         }
     }
-
 
     public String create() {
         this.user = new User(firstName, lastName, gender, 27);
@@ -85,13 +83,6 @@ public class LoginController implements Serializable {
         userRepository.deleteUser(user);
     }
 
-    public UserRepository getUserRepository() {
-        return userRepository;
-    }
-
-    public void setUserRepository(UserRepository userRepository) {
-        this.userRepository = userRepository;
-    }
 
     public User getUser() {
         return user;

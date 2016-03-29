@@ -7,48 +7,47 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:p="http://primefaces.org/ui">
 
-<h:head>
-    <meta charset="UTF-8"/>
-    <title>Search albums</title>
-</h:head>
+<ui:composition template="template.xhtml">
+    <ui:define name="title">Search Albums</ui:define>
+    <ui:define name="body">
+        <h3> List of Albums: </h3>
+        <p:dataTable id="albums" value="#{albumController.allAlbums}" var="album">
+            <p:column headerText="title">
+                <h:outputText value="#{album.title}"/>
+            </p:column>
+            <p:column headerText="composer">
+                <h:outputText value="#{album.composer}"/>
+            </p:column>
+            <p:column headerText="number of songs">
+                <h:outputText value="#{album.numberOfSongs}"/>
+            </p:column>
+            <p:column headerText="genre">
+                <h:outputText value="#{album.genre}"/>
+            </p:column>
+        </p:dataTable>
 
-<h:body>
-    <h3> List of Albums: </h3>
-    <p:dataTable id="albums" value="#{albumController.allAlbums}" var="album">
-        <p:column headerText="title">
-            <h:outputText value="#{album.title}"/>
-        </p:column>
-        <p:column headerText="composer">
-            <h:outputText value="#{album.composer}"/>
-        </p:column>
-        <p:column headerText="number of songs">
-            <h:outputText value="#{album.numberOfSongs}"/>
-        </p:column>
-        <p:column headerText="genre">
-            <h:outputText value="#{album.genre}"/>
-        </p:column>
-    </p:dataTable>
-
-    <h:form>
-        <h:inputText value="#{albumController.albumTitle}" />
-        <h:commandButton value="search albums">
-            <f:ajax listener="#{albumController.filterAlbums}"
-                    execute="albumTitle"
-                    render="albumTable"/>
-        </h:commandButton>
-        <h:dataTable id="albumTable" value="#{albumController.albums}" var="album">
-            <f:facet name="header">
-                <h:outputText value="title"/>
-            </f:facet>
-            <h:outputText value="#{album.title}"/>
-        </h:dataTable>
-    </h:form>
-
+        <h:form>
+            <h:inputText value="#{albumController.albumTitle}" />
+            <h:commandButton value="search albums">
+                <f:ajax listener="#{albumController.filterAlbums}"
+                        execute="albumTitle"
+                        render="albumTable"/>
+            </h:commandButton>
+            <h:dataTable id="albumTable" value="#{albumController.albums}" var="album">
+                <f:facet name="header">
+                    <h:outputText value="title"/>
+                </f:facet>
+                <h:outputText value="#{album.title}"/>
+            </h:dataTable>
+        </h:form>
+        <ui:define name="footer"><ui:include src="footer.xhtml"/></ui:define>
+    </ui:define>
 
 
+</ui:composition>
 
 
-</h:body>
+
 
 
 </html>
