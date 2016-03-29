@@ -10,11 +10,13 @@ import javax.faces.application.FacesMessage;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
+import javax.faces.event.AjaxBehaviorEvent;
 import javax.faces.validator.ValidatorException;
 import javax.inject.Inject;
 import javax.inject.Named;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -29,11 +31,34 @@ public class LoginController implements Serializable {
     UserRepository userRepository;
     @NotNull
     private User user;
-    @NotNull @Length(min = 1, max = 30)
+    @NotNull
+    @Length(min = 1, max = 30)
     private String firstName;
-    @NotNull @Length(min = 1, max = 30)
+    @NotNull
+    @Length(min = 1, max = 30)
     private String lastName;
     private User.Gender gender;
+
+    private List<User> allUsers = new ArrayList<>();
+    private List<User> filteredUsers = new ArrayList<>(allUsers); //search results
+    private String firstNameFilter;
+
+    public LoginController() {
+        allUsers.add(new User("Kurt", "Cobain", User.Gender.MALE, 27));
+        allUsers.add(new User("Michael", "Stype", User.Gender.MALE, 46));
+        allUsers.add(new User("Jimi", "Hendrikx", User.Gender.MALE, 27));
+        allUsers.add(new User("Janis", "Joplin", User.Gender.MALE, 26));
+        allUsers.add(new User("Pixie", "Stevens", User.Gender.MALE, 31));
+    }
+
+    public void searchUsers(AjaxBehaviorEvent event) {
+        filteredUsers.clear();
+        for (User user : allUsers) {
+            if (user.getFirstName().contains(firstNameFilter)) {
+                filteredUsers.add(user);
+            }
+        }
+    }
 
 
     public String create() {
@@ -49,12 +74,34 @@ public class LoginController implements Serializable {
             throw new ValidatorException(message);
         }
     }
+
     //event listener:
     public void action(ActionEvent event) {
         System.out.println("Hello!");
     }
+
     public void remove(User user) {
         userRepository.deleteUser(user);
+    }
+
+    public String getFirstNameFilter() {
+        return firstNameFilter;
+    }
+
+    public void setFirstNameFilter(String firstNameFilter) {
+        this.firstNameFilter = firstNameFilter;
+    }
+
+    public void setAllUsers(List<User> allUsers) {
+        this.allUsers = allUsers;
+    }
+
+    public List<User> getFilteredUsers() {
+        return filteredUsers;
+    }
+
+    public void setFilteredUsers(List<User> filteredUsers) {
+        this.filteredUsers = filteredUsers;
     }
 
     public List<User> getAllUsers() {

@@ -8,6 +8,7 @@ import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 import java.util.List;
 
 /**
@@ -28,14 +29,12 @@ public class AlbumRepository implements RemoteAlbumRepository {
     @Override
     public void updateAlbum(Album album) {
         em.merge(album);
-
     }
 
     @Override
     public void deleteAlbum(Album album) {
         album = em.find(Album.class, album.getId());
         em.remove(album);
-
     }
 
     @Override
@@ -46,6 +45,12 @@ public class AlbumRepository implements RemoteAlbumRepository {
     @Override
     public List<Album> findAllAlbums() {
         return em.createNamedQuery(Album.FIND_ALL, Album.class).getResultList();
+    }
+
+    public List<Album> findAlbumByTitle(String albumTitle) {
+        Query query = em.createQuery("SELECT a FROM Album a WHERE a.title = :albumTitle");
+        query.setParameter("albumTitle", albumTitle);
+        return query.getResultList();
     }
 
 }

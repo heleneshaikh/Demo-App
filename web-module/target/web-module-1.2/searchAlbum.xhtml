@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+    <meta charset="UTF-8"/>
+    <title>Search albums</title>
+</h:head>
+
+<h:body>
+    <h:form>
+        <h:inputText value="#{albumController.albumTitle}"/>
+        <h:commandButton value="search albums">
+            <f:ajax execute="@form"
+                    listener="#{albumController.filterAlbums}"
+                    render="albumTable"/>
+        </h:commandButton>
+        <h:dataTable id="albumTable"
+                     value="#{albumController.allAlbums}"
+                     var="album">
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="Title"/>
+                </f:facet>
+                <h:outputText value="#{album.title}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="composer"/>
+                </f:facet>
+                <h:outputText value="#{album.composer}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="NumberOfSongs"/>
+                </f:facet>
+                <h:outputText value="#{album.numberOfSongs}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="Genre"/>
+                </f:facet>
+                <h:outputText value="#{album.genre}"/>
+            </h:column>
+        </h:dataTable>
+    </h:form>
+</h:body>
+
+
+</html>

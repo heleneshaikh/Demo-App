@@ -32,7 +32,6 @@
                 <h:message for="firstNameInput"/>
             </p:inputText>
         </div>
-        <h:commandButton value="label" actionListeren="#{loginController.action}"/>
         <div>
             <p:outputLabel value="last name: " id="lastName" for="lastNameInput"/>
             <p:inputText value="#{loginController.lastName}" id="lastNameInput" required="true" validator="#{loginController.validateName}"/>
