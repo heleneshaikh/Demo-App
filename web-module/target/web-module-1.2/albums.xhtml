@@ -3,7 +3,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:p="http://primefaces.org/ui">
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
 
 
     <ui:composition template="template.xhtml">
@@ -19,6 +20,13 @@
                     </p:column>
                     <p:column headerText="Genre">
                         <h:outputText value="#{album.genre.toString().toLowerCase()}"/>
+                    </p:column>
+                    <p:column>
+                        <h:form>
+                            <h:commandLink value="Remove">
+                                <f:ajax render="albums" event="click" listener="#{albumController.remove(album)}"/>
+                            </h:commandLink>
+                        </h:form>
                     </p:column>
                 </p:dataTable>
             </ui:define>

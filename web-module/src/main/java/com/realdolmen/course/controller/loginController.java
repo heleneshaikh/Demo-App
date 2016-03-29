@@ -44,6 +44,7 @@ public class LoginController implements Serializable {
     private String firstNameFilter;
 
     public LoginController() {
+
         allUsers.add(new User("Kurt", "Cobain", User.Gender.MALE, 27));
         allUsers.add(new User("Michael", "Stype", User.Gender.MALE, 46));
         allUsers.add(new User("Jimi", "Hendrikx", User.Gender.MALE, 27));
@@ -84,28 +85,20 @@ public class LoginController implements Serializable {
         userRepository.deleteUser(user);
     }
 
-    public String getFirstNameFilter() {
-        return firstNameFilter;
+    public UserRepository getUserRepository() {
+        return userRepository;
     }
 
-    public void setFirstNameFilter(String firstNameFilter) {
-        this.firstNameFilter = firstNameFilter;
+    public void setUserRepository(UserRepository userRepository) {
+        this.userRepository = userRepository;
     }
 
-    public void setAllUsers(List<User> allUsers) {
-        this.allUsers = allUsers;
+    public User getUser() {
+        return user;
     }
 
-    public List<User> getFilteredUsers() {
-        return filteredUsers;
-    }
-
-    public void setFilteredUsers(List<User> filteredUsers) {
-        this.filteredUsers = filteredUsers;
-    }
-
-    public List<User> getAllUsers() {
-        return userRepository.findAllUsers();
+    public void setUser(User user) {
+        this.user = user;
     }
 
     public String getFirstName() {
@@ -124,28 +117,36 @@ public class LoginController implements Serializable {
         this.lastName = lastName;
     }
 
-    public UserRepository getUserRepository() {
-        return userRepository;
-    }
-
-    public void setUserRepository(UserRepository userRepository) {
-        this.userRepository = userRepository;
-    }
-
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
-
     public User.Gender getGender() {
         return gender;
     }
 
     public void setGender(User.Gender gender) {
         this.gender = gender;
+    }
+
+    public List<User> getAllUsers() {
+        return allUsers;
+    }
+
+    public void setAllUsers(List<User> allUsers) {
+        this.allUsers = allUsers;
+    }
+
+    public List<User> getFilteredUsers() {
+        return filteredUsers;
+    }
+
+    public void setFilteredUsers(List<User> filteredUsers) {
+        this.filteredUsers = filteredUsers;
+    }
+
+    public String getFirstNameFilter() {
+        return firstNameFilter;
+    }
+
+    public void setFirstNameFilter(String firstNameFilter) {
+        this.firstNameFilter = firstNameFilter;
     }
 }
 

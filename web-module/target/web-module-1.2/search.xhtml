@@ -17,27 +17,28 @@
         <h:panelGrid>
             <label for="firstNameFilter">Filter by first name:</label>
             <h:inputText id="firstNameFilter" value="#{loginController.firstNameFilter}"/>
-            <h:commandButton value="Filter">
+            <h:commandButton value="Search">
                 <f:ajax listener="#{loginController.searchUsers}"
                         execute="firstNameFilter"
                         render="searchResults"/>
             </h:commandButton>
         </h:panelGrid>
-        <h:dataTable id="searchResults"
+
+        <p:dataTable id="searchResults"
                      value="#{loginController.filteredUsers}" var="user">
-            <h:column>
+            <p:column headerText="first name">
                 <f:facet name="header">
                     <h:outputText value="firstname"/>
                 </f:facet>
                 <h:outputText value="#{user.firstName}"/>
-            </h:column>
-            <h:column>
+            </p:column>
+            <p:column headerText="last name">
                 <f:facet name="header">
                     <h:outputText value="last name"/>
                 </f:facet>
                 <h:outputText value="#{user.lastName}"/>
-            </h:column>
-        </h:dataTable>
+            </p:column>
+        </p:dataTable>
     </h:form>
 </h:body>
 
