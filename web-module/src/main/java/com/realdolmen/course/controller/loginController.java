@@ -47,8 +47,8 @@ public class LoginController implements Serializable {
         allUsers.add(new User("Kurt", "Cobain", User.Gender.MALE, 27));
         allUsers.add(new User("Michael", "Stype", User.Gender.MALE, 46));
         allUsers.add(new User("Jimi", "Hendrikx", User.Gender.MALE, 27));
-        allUsers.add(new User("Janis", "Joplin", User.Gender.MALE, 26));
-        allUsers.add(new User("Pixie", "Stevens", User.Gender.MALE, 31));
+        allUsers.add(new User("Janis", "Joplin", User.Gender.FEMALE, 26));
+        allUsers.add(new User("Pixie", "Shaikh", User.Gender.FEMALE, 31));
     }
 
     public void searchUsers(AjaxBehaviorEvent event) {

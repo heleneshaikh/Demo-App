@@ -10,7 +10,7 @@
       <schema id="1" name="demo"/>
       <table id="2" parent="1" name="Book"/>
       <table id="3" parent="1" name="Album"/>
-      <table id="4" parent="1" name="hibernate_sequence"/>
+      <table id="4" parent="1" name="User"/>
       <column id="5" parent="2" name="id">
         <mandatory>1</mandatory>
         <data-type>int(11)</data-type>
@@ -37,22 +37,50 @@
         <data-type>varchar(255)</data-type>
       </column>
       <column id="12" parent="3" name="genre">
-        <data-type>int(11)</data-type>
+        <data-type>varchar(255)</data-type>
       </column>
-      <column id="13" parent="3" name="numberOfSongs">
-        <mandatory>1</mandatory>
+      <column id="13" parent="3" name="songs">
         <data-type>int(11)</data-type>
       </column>
       <column id="14" parent="3" name="title">
-        <data-type>varchar(255)</data-type>
+        <mandatory>1</mandatory>
+        <data-type>varchar(100)</data-type>
       </column>
-      <key id="15" parent="3" name="PRIMARY">
+      <column id="15" parent="3" name="user_id">
+        <data-type>bigint(20)</data-type>
+      </column>
+      <index id="16" parent="3" name="FKftnv9lu106yr4lgt39rbnmid4">
+        <columns>user_id</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <key id="17" parent="3" name="PRIMARY">
         <columns>id</columns>
         <primary>1</primary>
       </key>
-      <column id="16" parent="4" name="next_val">
+      <foreign-key id="18" parent="3" name="FKftnv9lu106yr4lgt39rbnmid4">
+        <columns>user_id</columns>
+        <ref-key>~.User.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <column id="19" parent="4" name="id">
+        <mandatory>1</mandatory>
         <data-type>bigint(20)</data-type>
       </column>
+      <column id="20" parent="4" name="firstName">
+        <data-type>varchar(50)</data-type>
+      </column>
+      <column id="21" parent="4" name="gender">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="22" parent="4" name="lastName">
+        <mandatory>1</mandatory>
+        <data-type>varchar(50)</data-type>
+      </column>
+      <key id="23" parent="4" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
     </database-model>
   </data-source>
 </component>

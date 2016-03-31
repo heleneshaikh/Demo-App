@@ -32,7 +32,6 @@ public class UserRepository implements RemoteUserRepository {
     public void deleteUser(User user) {
         user = em.find(User.class, user.getId());
         em.remove(user);
-
     }
 
     public List <User> findUserByLastName(String lastNameInput) {
